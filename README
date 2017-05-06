@@ -1,0 +1,38 @@
+Fylla -- The JTAG Based Boot-Loader Loader
+Charles Eidsness -- January 2, 2006
+
+This is a simple tool that makes it possible to load a FLASH device connected
+to any device with a JTAG port. It currently supports the folllowing hardware:
+
+Processor: AMD Au1000
+FLASH: Spasion SL29GLxxxM
+JTAG Conection: jport via a Parallel Port (refer to jport.c for a schematic)
+
+I've tried to write it in a way that makes it easilly updatable for different
+hardware (by me at least).
+
+The software is structured like this:
+
+       file to send
+	    |
+	  fylla
+	    |
+	  flash
+	    |
+	processor
+	    |
+	  jstate
+	    |
+	  jport
+	    |
+    bit-stream to JTAG port
+
+For a different processor only the processor.* files should require editting,
+if the flash is different then only the flash.* files should require
+editting, and if the interface between the PC and the JATG port changes then
+only jport.* should require editting.
+
+If you have any questions or comments, or if you make any modifiatcions to 
+this code I'd be happy to hear about it, you can reach me at: 
+	charles@cooper-street.com
+
